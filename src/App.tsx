@@ -1,11 +1,12 @@
-import "./App.css";
-
+import Layout from "./Layout";
 import { ThemeProvider } from "./components/ui/theme-provider";
 
 function App() {
   return (
     <>
-      <ThemeProvider defaultTheme="dark"></ThemeProvider>
+      <ThemeProvider defaultTheme="dark">
+        <Layout />
+      </ThemeProvider>
     </>
   );
 }
