@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Poppins:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Lato:wght@400;500;700&family=Poppins:wght@500;600&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -104,15 +104,15 @@ li {
 }
 /**Header */
 
-.LogoImage {
-  background: url(./assets/logo.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 1;
+.header {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .form {
-  height: 550px;
+  height: 590px;
   width: 450px;
   background-color: rgba(0, 0, 0, 0.7);
   top: 50%;

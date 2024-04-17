@@ -20,6 +20,7 @@ module.exports = {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         jost: ["Jost", "sans-serif"],
+        lato: ["Lato", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
