@@ -1,5 +1,6 @@
 import { addUsers } from "@/Store/Slices/userSlice";
 import checkValidate from "@/utils/checkValidate";
+import { USER_AVATAR } from "@/utils/constants";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -46,12 +47,18 @@ const SignIn = () => {
           console.log(user);
           updateProfile(user, {
             displayName: name?.current?.value ?? "",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               if (auth.currentUser) {
-                const { uid, email, displayName } = auth.currentUser;
+                const { uid, email, displayName, photoURL } = auth.currentUser;
                 dispatch(
-                  addUsers({ uid: uid, email: email, displayName: displayName })
+                  addUsers({
+                    uid: uid,
+                    email: email,
+                    displayName: displayName,
+                    photoURL: photoURL,
+                  })
                 );
               }
             })

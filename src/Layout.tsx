@@ -11,9 +11,14 @@ const Layout = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        const { uid, email, displayName } = user;
+        const { uid, email, displayName, photoURL } = user;
         dispatch(
-          addUsers({ uid: uid, email: email, displayName: displayName })
+          addUsers({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
         );
         navigate("browse");
       } else {
