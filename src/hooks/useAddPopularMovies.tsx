@@ -1,28 +1,26 @@
-import { addMovies } from "@/Store/Slices/moviesSlice";
+import { addPopularMovies } from "@/Store/Slices/moviesSlice";
 import { API_OPTIONS } from "@/utils/constants";
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-const useAddNowPlayingMovies = () => {
+const useAddPopularMovies = () => {
   const dispatch = useDispatch();
-  const nowPlayingMovies = async () => {
+  const addPopularMovie = async () => {
     try {
       const response = await axios.get(
-        "https://api.themoviedb.org/3/movie/now_playing?page=1",
+        "https://api.themoviedb.org/3/movie/popular?page=2",
         API_OPTIONS
       );
       const data = response.data;
-      // console.log(data);
-      dispatch(addMovies(data.results));
+      dispatch(addPopularMovies(data.results));
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
-
   useEffect(() => {
-    nowPlayingMovies();
+    addPopularMovie();
   }, []);
 };
 
-export default useAddNowPlayingMovies;
+export default useAddPopularMovies;

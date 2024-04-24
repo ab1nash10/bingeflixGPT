@@ -12,12 +12,12 @@ const useGetTrailer = ({ movieId }: { movieId: number }) => {
       API_OPTIONS
     );
     const data = response.data;
-    console.log(data);
+    // console.log(data);
     const filterData = data.results.filter(
       (video: []) => video?.type == "Trailer"
     );
     const trailer = filterData.length ? filterData[0] : data.results[0];
-    console.log(trailer);
+    // console.log(trailer);
     dispatch(addTrailer(trailer));
   };
   useEffect(() => {
