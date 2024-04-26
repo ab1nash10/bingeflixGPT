@@ -2,6 +2,8 @@
  * Renders the header component.
  * @returns The JSX element representing the header.
  */
+import { changeLang } from "@/Store/Slices/configSlice";
+import { toggleShowGPT } from "@/Store/Slices/gptSlice";
 import { removeUsers } from "@/Store/Slices/userSlice";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -12,13 +14,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LOGO, USER_AVATAR } from "@/utils/constants";
+import { LOGO, SUPPORTED_LANG, USER_AVATAR } from "@/utils/constants";
 import { signOut } from "firebase/auth";
 import { LogOut } from "lucide-react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import image from "../assets/chat-gpt.png";
 import { auth } from "../utils/firebase";
 const Header = () => {
+  const [optVisible, setOptVisible] = useState(false);
   const user = useSelector((store) => store.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,6 +36,13 @@ const Header = () => {
         navigate("/error");
       });
   };
+  const handleShowGPT = () => {
+    dispatch(toggleShowGPT());
+    setOptVisible(!optVisible);
+  };
+  const handleLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    dispatch(changeLang(e.target.value));
+  };
   return (
     <div className="container header mx-auto z-20 flex justify-between items-center">
       <div>
@@ -41,7 +53,26 @@ const Header = () => {
         />
       </div>
       {user && (
-        <div>
+        <div className="flex items-center">
+          {optVisible && (
+            <select
+              className="bg-[#2e282a] font-poppins text-white py-2 pl-3 mr-2 rounded-lg"
+              onChange={handleLang}
+            >
+              {SUPPORTED_LANG.map((options) => (
+                <option key={options.identifier} value={options.identifier}>
+                  {options.name}
+                </option>
+              ))}
+            </select>
+          )}
+          <button
+            className="flex bg-[#2e282a] px-3 py-2 mr-2 items-center font-poppins rounded-lg hover:opacity-65"
+            onClick={handleShowGPT}
+          >
+            <img src={image} alt="logo" className="h-6 w-6 mr-2 opacity-75" />
+            <h1>GPT Search</h1>
+          </button>
           <DropdownMenu>
             <DropdownMenuTrigger className="outline-none">
               <Avatar>
