@@ -44,7 +44,7 @@ const SignIn = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user);
           updateProfile(user, {
             displayName: name?.current?.value ?? "",
             photoURL: USER_AVATAR,

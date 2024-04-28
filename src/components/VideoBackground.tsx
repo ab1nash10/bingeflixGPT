@@ -19,24 +19,10 @@ const VideoBackground = ({ movieId }: VideoBackgroundProps) => {
             trailer?.key
           }
           title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
       </div>
     </div>
-    // <div>
-    //   <div className="opacity-70 overflow-hidden absolute top-[-120px] md:top-[-20px] left-0 w-full h-screen pointer-events-none">
-    //     <iframe
-    //       className="scale-125 w-full h-screen"
-    //       src={
-    //         "https://www.youtube.com/embed/" +
-    //         trailer?.key +
-    //         "?showinfo=0&autoplay=1&mute=1&rel=0&controls=0&loop=1&playlist=" +
-    //         trailer?.key
-    //       }
-    //       title="YouTube video player"
-    //     ></iframe>
-    //   </div>
-    // </div>
   );
 };
 

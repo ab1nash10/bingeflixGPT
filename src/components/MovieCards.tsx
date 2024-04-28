@@ -6,10 +6,16 @@ type MovieCardsProp = {
 const MovieCards = ({ poster_path, title }: MovieCardsProp) => {
   return (
     <>
-      <div className="w-full md:w-48 md:px-3 md:py-4">
-        <img src={IMG_URL + poster_path} alt={title} className="rounded-xl" />
-        {title}
-      </div>
+      {poster_path && (
+        <div className="w-full md:w-48 md:px-3 md:py-4">
+          <img
+            src={IMG_URL + poster_path}
+            alt={title}
+            className="rounded-lg h-[250px] w-[250px]"
+          />
+          {title}
+        </div>
+      )}
     </>
   );
 };

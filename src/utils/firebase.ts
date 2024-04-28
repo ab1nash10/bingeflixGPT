@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD-8Jw6KtECibcje58onIBlU5an6l_s71Y",
-  authDomain: "bingeflixgpt-b7755.firebaseapp.com",
-  projectId: "bingeflixgpt-b7755",
-  storageBucket: "bingeflixgpt-b7755.appspot.com",
-  messagingSenderId: "1021297214943",
-  appId: "1:1021297214943:web:0423de2d2b42f7716ab06a",
+  apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECTID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_FIREBASE_APPID,
 };
 
 // Initialize Firebase

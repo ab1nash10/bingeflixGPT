@@ -17,13 +17,14 @@ import {
 import { LOGO, SUPPORTED_LANG, USER_AVATAR } from "@/utils/constants";
 import { signOut } from "firebase/auth";
 import { LogOut } from "lucide-react";
-import { useState } from "react";
+// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import image from "../assets/chat-gpt.png";
 import { auth } from "../utils/firebase";
 const Header = () => {
-  const [optVisible, setOptVisible] = useState(false);
+  // const [optVisible, setOptVisible] = useState(false);
+  const optVisible = useSelector((store) => store.gpt?.toggleGPT);
   const user = useSelector((store) => store.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -38,7 +39,6 @@ const Header = () => {
   };
   const handleShowGPT = () => {
     dispatch(toggleShowGPT());
-    setOptVisible(!optVisible);
   };
   const handleLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(changeLang(e.target.value));
@@ -56,7 +56,7 @@ const Header = () => {
         <div className="flex items-center">
           {optVisible && (
             <select
-              className="bg-[#2e282a] font-poppins text-white py-2 pl-3 mr-2 rounded-lg"
+              className="bg-[#2e282a] font-poppins text-white py-2 pl-2 pr-1 mr-2 rounded-lg text-center"
               onChange={handleLang}
             >
               {SUPPORTED_LANG.map((options) => (
@@ -71,7 +71,7 @@ const Header = () => {
             onClick={handleShowGPT}
           >
             <img src={image} alt="logo" className="h-6 w-6 mr-2 opacity-75" />
-            <h1>GPT Search</h1>
+            {optVisible ? <h1>Home</h1> : <h1>GPT Search</h1>}
           </button>
           <DropdownMenu>
             <DropdownMenuTrigger className="outline-none">

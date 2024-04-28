@@ -5,7 +5,7 @@ type movieProp = {
   title: string;
 };
 const MovieList = ({ movies, title }: movieProp) => {
-  console.log(movies);
+  // console.log(movies);
   return (
     <div className="md:px-4 md:mb-10 font-poppins">
       <h1 className="md:pl-3 md:text-4xl">{title}</h1>
@@ -14,7 +14,7 @@ const MovieList = ({ movies, title }: movieProp) => {
           {movies.map((movie) => (
             <MovieCards
               key={movie.id}
-              title={movie?.original_title}
+              title={movie?.title}
               poster_path={movie.poster_path}
             />
           ))}
