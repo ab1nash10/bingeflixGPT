@@ -4,11 +4,14 @@ type VideoProps = {
 };
 import { BadgeInfo, Play } from "lucide-react";
 const VideoTitle = ({ title, overview }: VideoProps) => {
+  const truncate = (string: string, n: number) => {
+    return string?.length > n ? string?.substring(0, n - 1) + "..." : string;
+  };
   return (
     <div className="absolute mt-80 px-12 md:mt-56 md:px-36 z-10">
       <h1 className="text-lg lg:text-5xl font-poppins lg:py-3">{title}</h1>
       <p className="opacity-45 text-sm lg:text-xl font-jost mt-2 lg:mt-10 py-4 lg:py-8 w-[95%] lg:w-1/2">
-        {overview}
+        {truncate(overview, 240)}
       </p>
       <div className="text-sm lg:text-2xl font-poppins items-center flex">
         <button className="bg-white mr-2 lg:mr-5 rounded px-2 lg:px-4 hover:opacity-70">

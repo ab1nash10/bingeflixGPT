@@ -23,7 +23,7 @@ const Layout = () => {
         navigate("browse");
       } else {
         dispatch(removeUsers());
-        navigate("/");
+        navigate("/signin");
       }
     });
     return () => {

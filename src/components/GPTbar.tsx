@@ -39,6 +39,7 @@ const GPTbar = () => {
         },
       });
       // console.log(response);
+
       const gptMovies =
         response.data?.candidates?.[0].content.parts?.[0].text.split(",");
       const promiseArray = gptMovies.map((movie: string) =>
@@ -66,7 +67,7 @@ const GPTbar = () => {
             langConst[selectedLang as keyof typeof langConst].gptPlaceholder
           }
           ref={searchText}
-          className="w-full h-14 px-4 py-2 outline-none bg-[#121113] rounded-r-[20px] capitalize text-xl"
+          className="w-full h-14 px-4 py-2 outline-none bg-[#121113] rounded-r-[28px] capitalize text-xl"
         />
         <button
           className="bg-[#6f1d1b] px-4 rounded-full absolute right-0 hover:bg-[#6f1c1be5]"

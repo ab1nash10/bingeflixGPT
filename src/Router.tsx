@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
 import Browse from "./components/Browse";
 import Error from "./components/Error";
+import LikedMovies from "./components/LikedMovies";
 import Navbar from "./components/Navbar";
 import SignIn from "./components/SignIn";
 
@@ -13,7 +14,7 @@ const mainRouter = createBrowserRouter(
       errorElement: <Error />,
       children: [
         {
-          path: "/",
+          path: "/signin",
           element: <SignIn />,
           index: true,
         },
@@ -28,6 +29,10 @@ const mainRouter = createBrowserRouter(
         {
           path: "error",
           element: <Error />,
+        },
+        {
+          path: "liked",
+          element: <LikedMovies />,
         },
       ],
     },

@@ -15,6 +15,7 @@ const GPTSuggestions = () => {
           key={movieName}
           movies={movieResults[index]}
           title={movieName}
+          rowId={index}
         />
       ))}
     </div>

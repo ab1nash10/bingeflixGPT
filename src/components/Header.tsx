@@ -44,7 +44,7 @@ const Header = () => {
     dispatch(changeLang(e.target.value));
   };
   return (
-    <div className="container header mx-auto z-20 flex justify-between items-center">
+    <div className="w-full  header px-36 z-20 flex justify-between items-center">
       <div>
         <img
           src={LOGO}
@@ -89,7 +89,9 @@ const Header = () => {
               <DropdownMenuItem className="capitalize">
                 {user?.displayName}
               </DropdownMenuItem>
-              <DropdownMenuItem>Subscription</DropdownMenuItem>
+
+              <DropdownMenuItem>Liked Movies</DropdownMenuItem>
+
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 className="cursor-pointer"

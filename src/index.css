@@ -83,6 +83,7 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 a {
   text-decoration: none;
@@ -136,11 +137,15 @@ li {
   height: 0.2em;
 }
 
-::-webkit-scrollbar-track-piece {
-  background: #888;
+.cards {
+  scrollbar-width: none; /*firefox Hide scrollbar */
 }
+
+/* ::-webkit-scrollbar-track-piece {
+  background: #888;
+} */
 ::-webkit-scrollbar-thumb {
-  background: #414141;
+  background: transparent;
 }
 /*======================
     404 page
@@ -185,4 +190,28 @@ li {
 
 .contant_box_404 {
   margin-top: -50px;
+}
+
+.card {
+  transition: transform 450ms;
+  -webkit-transition: transform 450ms;
+  -moz-transition: transform 450ms;
+  -ms-transition: transform 450ms;
+  -o-transition: transform 450ms;
+  &:hover {
+    transform: scale(1.08);
+    -webkit-transform: scale(1.08);
+    -moz-transform: scale(1.08);
+    -ms-transform: scale(1.08);
+    -o-transform: scale(1.08);
+  }
+}
+
+.cards {
+  overflow-y: hidden;
+  object-fit: contain;
+  width: 100%;
+}
+.cards::-webkit-scrollbar {
+  display: none;
 }

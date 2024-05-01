@@ -9,10 +9,26 @@ const SecondaryContainer = () => {
     movies?.topRatedMovies &&
     movies?.upcomingMovies && (
       <div className="-mt-56 relative ml-12">
-        <MovieList title={"Now Playing"} movies={movies?.nowPlayingMovie} />
-        <MovieList title={"Popular Movies"} movies={movies?.popularMovie} />
-        <MovieList title={"Top Rated"} movies={movies?.topRatedMovies} />
-        <MovieList title={"Upcoming Movies"} movies={movies?.upcomingMovies} />
+        <MovieList
+          rowId={1}
+          title={"Now Playing"}
+          movies={movies?.nowPlayingMovie}
+        />
+        <MovieList
+          rowId={2}
+          title={"Popular Movies"}
+          movies={movies?.popularMovie}
+        />
+        <MovieList
+          rowId={3}
+          title={"Top Rated"}
+          movies={movies?.topRatedMovies}
+        />
+        <MovieList
+          rowId={4}
+          title={"Upcoming Movies"}
+          movies={movies?.upcomingMovies}
+        />
       </div>
     )
   );
