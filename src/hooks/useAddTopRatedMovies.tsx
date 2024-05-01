@@ -2,10 +2,11 @@ import { addTopRatedMovies } from "@/Store/Slices/moviesSlice";
 import { API_OPTIONS } from "@/utils/constants";
 import axios from "axios";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const useAddTopRatedMovies = () => {
   const dispatch = useDispatch();
+  const topRatedMovie = useSelector((store) => store.movies?.topRatedMovies);
   const addTopRatedMovie = async () => {
     try {
       const response = await axios.get(
@@ -20,7 +21,7 @@ const useAddTopRatedMovies = () => {
   };
 
   useEffect(() => {
-    addTopRatedMovie();
+    !topRatedMovie && addTopRatedMovie();
   }, []);
 };
 

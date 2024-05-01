@@ -2,10 +2,11 @@ import { addUpcomingMovies } from "@/Store/Slices/moviesSlice";
 import { API_OPTIONS } from "@/utils/constants";
 import axios from "axios";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const useAddUpcomingMovies = () => {
   const dispatch = useDispatch();
+  const upcomingMovies = useSelector((store) => store.movies?.upcomingMovies);
   const addUpComingMovie = async () => {
     try {
       const response = await axios.get(
@@ -19,7 +20,7 @@ const useAddUpcomingMovies = () => {
     }
   };
   useEffect(() => {
-    addUpComingMovie();
+    !upcomingMovies && addUpComingMovie();
   }, []);
 };
 

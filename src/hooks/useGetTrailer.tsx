@@ -2,9 +2,10 @@ import { addTrailer } from "@/Store/Slices/moviesSlice";
 import { API_OPTIONS } from "@/utils/constants";
 import axios from "axios";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const useGetTrailer = ({ movieId }: { movieId: number }) => {
+  const trailers = useSelector((store) => store.movies?.trailer);
   const dispatch = useDispatch();
   const getTrailer = async () => {
     const response = await axios.get(
@@ -21,7 +22,7 @@ const useGetTrailer = ({ movieId }: { movieId: number }) => {
     dispatch(addTrailer(trailer));
   };
   useEffect(() => {
-    getTrailer();
+    !trailers && getTrailer();
   }, []);
 };
 
